@@ -1,0 +1,1 @@
+!function(o,e){"object"==typeof exports&&"object"==typeof module?module.exports=e():"function"==typeof define&&define.amd?define("about",[],e):"object"==typeof exports?exports.about=e():o.about=e()}(this,(()=>(console.log("Hello from About folder"),{})));
