@@ -2,7 +2,9 @@ console.log('Hello from Home folder')
 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { sectionBio } from './section-bio'
+import { sectionGallery } from './section-gallery'
 
 window.addEventListener('DOMContentLoaded', (event) => {
   /** Split Type */
@@ -29,9 +31,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   /** Split Type */
 
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
   /** Run all the functions below for each sections */
+  sectionGallery()
+
   sectionBio()
 
   // Add the resize event listener to clear and re-run the ScrollTrigger
@@ -40,6 +44,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill(true))
 
     // Re-run the animationTl function to set up the new ScrollTrigger
+    sectionGallery()
+
     sectionBio()
   })
 })
