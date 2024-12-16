@@ -5,8 +5,20 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { sectionBio } from './section-bio'
 import { sectionGallery } from './section-gallery'
+import { sectionJournelScroll } from './section-journal'
+import { sectionDraggable } from './section-draggable'
+import { Draggable } from 'gsap/Draggable'
+import { sectionDiscover } from './section-discover'
+import { sectionPhilosophy } from './section-philosophy'
+import { sectionWork } from './section-work'
+import { sectionFooter } from './section-footer'
 
 window.addEventListener('DOMContentLoaded', (event) => {
+  // GSAP has loaded up
+  gsap.set('.page-wrapper', {
+    opacity: 1,
+  })
+
   /** Split Type */
   let typeSplit
 
@@ -31,12 +43,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   /** Split Type */
 
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Draggable)
 
   /** Run all the functions below for each sections */
   sectionGallery()
 
   sectionBio()
+
+  sectionDiscover()
+
+  sectionPhilosophy()
+
+  sectionWork()
+
+  sectionJournelScroll()
+
+  sectionDraggable()
+
+  sectionFooter()
 
   // Add the resize event listener to clear and re-run the ScrollTrigger
   window.addEventListener('resize', () => {
@@ -47,5 +71,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
     sectionGallery()
 
     sectionBio()
+
+    sectionDiscover()
+
+    sectionPhilosophy()
+
+    sectionWork()
+
+    sectionJournelScroll()
+
+    sectionDraggable()
+
+    sectionFooter()
   })
 })
