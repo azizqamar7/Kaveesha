@@ -13,6 +13,10 @@ import { sectionPhilosophy } from './section-philosophy'
 import { sectionWork } from './section-work'
 import { sectionFooter } from './section-footer'
 
+window.onbeforeunload = () => {
+  window.scrollTo(0, 0)
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
   // GSAP has loaded up
   gsap.set('.page-wrapper', {
