@@ -1,27 +1,6 @@
 import gsap from 'gsap'
 
 export const sectionGallery = () => {
-  // Scroll to top immediately when page loads
-  const topSection = document.getElementById('top')
-
-  //   window.addEventListener('load', () => {
-  //     window.scrollTo(0, 0)
-  //   })
-  document.documentElement.scrollTop = 0
-  document.body.scrollTop = 0 // For older browsers
-
-  // Scroll to top immediately when page loads
-  //   gsap.to(document, {
-  //     duration: 0,
-  //     scrollTo: 0,
-  //   })
-
-  if (topSection) {
-    console.log('instant', window.screenY)
-    //   topSection.scrollIntoView({ behavior: 'instant' })
-    // window.location.href = '/testing'
-  }
-
   // Disable scrolling function
   const disableScroll = () => {
     document.body.style.overflow = 'hidden'
@@ -33,8 +12,6 @@ export const sectionGallery = () => {
 
   // Disable scroll immediately
   disableScroll()
-  // Run the function after 1 second
-  //   setTimeout(disableScroll, 1000)
 
   const heroTiles = document.querySelectorAll('[hero-loader-image]')
   const heroTilesTl = gsap.timeline({ onComplete: enableScroll })
