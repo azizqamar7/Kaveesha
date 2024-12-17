@@ -6,6 +6,7 @@ module.exports = {
     ['global']: './src/global/index.js',
     ['home']: './src/home/index.js',
     ['about']: './src/about/index.js',
+    ['project']: './src/project/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
