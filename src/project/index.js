@@ -93,8 +93,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
       tl.fromTo(
         image,
-        { clipPath: 'inset(1000% 0 0 0)' },
-        { clipPath: 'inset(0% 0 0 0)', ease: 'expo.out', duration: 1 }
+        { clipPath: 'inset(100% 0 0 0)' },
+        { clipPath: 'inset(0% 0 0 0)', ease: 'power3.out', duration: 2 }
+      ).from(
+        image.querySelector('img'),
+        { scale: 1.2, duration: 5, ease: 'power3.out' },
+        '<'
       )
     })
   }
