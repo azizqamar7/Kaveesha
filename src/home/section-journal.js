@@ -5,7 +5,7 @@ export const sectionJournelScroll = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: '[section-journel-long]',
-      markers: true,
+      // markers: true,
       start: 'top 0%',
       end: 'bottom bottom',
       scrub: 1,
