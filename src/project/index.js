@@ -87,7 +87,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
           containerAnimation: mainTl,
           start: 'left 75%',
           //   end: 'bottom 50%',
-          //   markers: true,
+          markers: true,
         },
       })
 
