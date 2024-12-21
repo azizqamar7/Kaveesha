@@ -5,11 +5,17 @@ export const sectionDraggable = () => {
   // Get the section and drag elements
   // const sectionPan = document.querySelector('.section_pan')
   const dragPan = document.querySelector('[pan-drag]')
-  const dragPanItems = document.querySelectorAll('[pan-drag-item]')
+  // const dragPanItems = document.querySelectorAll('[pan-drag-item]')
+  const togglePan = document.querySelector('[toggle-pan]') // Toggle button
 
   // Draggable instances
   let dragPanInstance
   let itemDraggableInstances = []
+  let isDragEnabled
+  if (window.innerWidth < 991) {
+    isDragEnabled = false // State to track drag toggle
+    togglePan.textContent = 'Enter'
+  }
 
   // Main drag pan draggability
   dragPanInstance = Draggable.create(dragPan, {
@@ -42,42 +48,59 @@ export const sectionDraggable = () => {
   })[0]
 
   // Initial positioning
-  gsap.set(dragPan, {
-    x: '-25%',
-    y: '-25%',
-  })
+  gsap.set(dragPan, { x: '-25%', y: '-25%' })
 
   // Nested draggable items
-  dragPanItems.forEach((item, index) => {
-    const itemInstance = Draggable.create(item, {
-      type: 'x,y',
-      bounds: dragPan,
-      // inertia: true,
-      cursor: 'grab',
+  // dragPanItems.forEach((item, index) => {
+  //   const itemInstance = Draggable.create(item, {
+  //     type: 'x,y',
+  //     bounds: dragPan,
+  //     // inertia: true,
+  //     cursor: 'grab',
 
-      onDragStart: function () {
-        // Disable main drag pan when item is dragged
-        dragPanInstance.disable()
+  //     onDragStart: function () {
+  //       // Disable main drag pan when item is dragged
+  //       dragPanInstance.disable()
 
-        gsap.to(item, {
-          scale: 1.05,
-          duration: 0.2,
-        })
-      },
+  //       gsap.to(item, {
+  //         scale: 1.05,
+  //         duration: 0.2,
+  //       })
+  //     },
 
-      onDragEnd: function () {
-        // Re-enable main drag pan when item drag ends
+  //     onDragEnd: function () {
+  //       // Re-enable main drag pan when item drag ends
+  //       dragPanInstance.enable()
+
+  //       gsap.to(item, {
+  //         scale: 1,
+  //         duration: 0.2,
+  //       })
+  //     },
+  //   })[0]
+
+  //   itemDraggableInstances.push(itemInstance)
+  // })
+
+  // Toggle drag functionality
+  if (window.innerWidth < 991) {
+    dragPanInstance.disable()
+    togglePan.addEventListener('click', () => {
+      isDragEnabled = !isDragEnabled // Toggle the state
+
+      if (isDragEnabled) {
         dragPanInstance.enable()
-
-        gsap.to(item, {
-          scale: 1,
-          duration: 0.2,
-        })
-      },
-    })[0]
-
-    itemDraggableInstances.push(itemInstance)
-  })
+        // itemDraggableInstances.forEach((instance) => instance.enable())
+        togglePan.innerHTML = 'Pan to Explore<br/>[back to scroll]'
+        console.log('Drag enabled')
+      } else {
+        dragPanInstance.disable()
+        // itemDraggableInstances.forEach((instance) => instance.disable())
+        togglePan.innerHTML = 'Enter Back'
+        console.log('Drag disabled')
+      }
+    })
+  }
 
   // Responsive handling
   window.addEventListener('resize', () => {
@@ -92,7 +115,3 @@ export const sectionDraggable = () => {
     }
   })
 }
-
-/**
- * Section Drag Ends
- */
