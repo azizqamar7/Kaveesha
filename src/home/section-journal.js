@@ -72,8 +72,12 @@ export const sectionJournelScroll = () => {
         '<'
       )
       .to('[large-text]', { opacity: 0, delay: 1 })
-      .from('[pan-content]', { opacity: 0 })
-      .from('.pan-drag-list', { opacity: 0, y: '0.5%' })
+      .fromTo('[pan-content]', { opacity: 0 }, { opacity: 1 })
+      .fromTo(
+        '.pan-drag-list',
+        { opacity: 0, y: '0.5%' },
+        { opacity: 1, y: '0%' }
+      )
       .to({}, { duration: 5 })
   }
 }
