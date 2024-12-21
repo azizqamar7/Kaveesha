@@ -57,9 +57,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   sectionDiscover()
 
-  // sectionPhilosophy()
+  sectionPhilosophy()
 
-  // sectionWork()
+  sectionWork()
 
   sectionJournelScroll()
 
@@ -79,9 +79,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     sectionDiscover()
 
-    // sectionPhilosophy()
+    sectionPhilosophy()
 
-    // sectionWork()
+    sectionWork()
 
     sectionJournelScroll()
 
