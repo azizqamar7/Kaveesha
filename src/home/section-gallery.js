@@ -11,26 +11,41 @@ export const sectionGallery = () => {
   }
 
   // Disable scroll immediately
-  disableScroll()
+  if (window.innerWidth > 767) {
+    disableScroll()
+  }
 
   const heroTiles = document.querySelectorAll('[hero-loader-image]')
   const heroTilesTl = gsap.timeline({ onComplete: enableScroll })
-  heroTilesTl
-    .from('[hero-top-text]', { y: '125%', duration: 1 })
-    .from(
-      '[hero-mid-text]',
-      { x: '20%', opacity: 0, stagger: 0.1, duration: 1 },
-      0
-    )
 
-  heroTiles.forEach((tile) => {
-    heroTilesTl.to(tile, {
-      opacity: 1,
-      delay: 1,
-      duration: 1,
+  if (window.innerWidth > 767) {
+    heroTilesTl
+      .from('[hero-top-text]', { y: '125%', duration: 1 })
+      .from(
+        '[hero-mid-text]',
+        { x: '20%', opacity: 0, stagger: 0.1, duration: 1 },
+        0
+      )
+
+    heroTiles.forEach((tile) => {
+      heroTilesTl.to(tile, {
+        opacity: 1,
+        delay: 1,
+        duration: 1,
+      })
     })
-  })
-  heroTilesTl.to('.home_hero_content', { opacity: 0 })
+    heroTilesTl.to('.home_hero_content', { opacity: 0 })
+  }
+
+  if (window.innerWidth < 767) {
+    heroTilesTl
+      .from('[door-top-text]', { y: '200%', duration: 1 })
+      .from(
+        '[door-mid-text]',
+        { x: '20%', opacity: 0, stagger: 0.1, duration: 1 },
+        0
+      )
+  }
 
   const tl = gsap.timeline({
     scrollTrigger: {
