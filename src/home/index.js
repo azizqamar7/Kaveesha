@@ -12,8 +12,10 @@ import { sectionPhilosophy } from './section-philosophy'
 import { sectionWork } from './section-work'
 import { sectionFooter } from './section-footer'
 
-window.onbeforeunload = () => {
-  window.scrollTo(0, 0)
+if (window.innerWidth > 991) {
+  window.onbeforeunload = () => {
+    window.scrollTo(0, 0)
+  }
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
