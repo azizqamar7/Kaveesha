@@ -36,7 +36,7 @@ export const sectionBio = () => {
         // markers: true,
         pin: true,
         scrub: 1,
-        invalidateOnRefresh: true,
+        // invalidateOnRefresh: true,
         onEnter: (self) => {
           imageTl.play()
         },
