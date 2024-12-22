@@ -68,25 +68,27 @@ window.addEventListener('DOMContentLoaded', (event) => {
   sectionFooter()
 
   // Add the resize event listener to clear and re-run the ScrollTrigger
-  window.addEventListener('resize', () => {
-    // Clear the previous ScrollTrigger
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill(true))
+  if (window.innerWidth > 767) {
+    window.addEventListener('resize', () => {
+      // Clear the previous ScrollTrigger
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill(true))
 
-    // Re-run the animationTl function to set up the new ScrollTrigger
-    sectionGallery()
+      // Re-run the animationTl function to set up the new ScrollTrigger
+      sectionGallery()
 
-    sectionBio()
+      sectionBio()
 
-    sectionDiscover()
+      sectionDiscover()
 
-    sectionPhilosophy()
+      sectionPhilosophy()
 
-    sectionWork()
+      sectionWork()
 
-    sectionJournelScroll()
+      sectionJournelScroll()
 
-    sectionDraggable()
+      sectionDraggable()
 
-    sectionFooter()
-  })
+      sectionFooter()
+    })
+  }
 })
