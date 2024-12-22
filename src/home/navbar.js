@@ -7,6 +7,8 @@ export const navbarAnimation = () => {
   const line2 = document.querySelector('.nav_button-line-2')
   const line3 = document.querySelector('.nav_button-line-3')
 
+  let isOpen = false
+
   menuTimeline
     .set('.nav_menu-wrap', {
       pointerEvents: 'auto',
@@ -40,6 +42,11 @@ export const navbarAnimation = () => {
 
   menuButton.addEventListener('click', () => {
     menuTimeline.reversed() ? menuTimeline.play() : menuTimeline.reverse()
+
+    isOpen = !isOpen
+    if (isOpen) {
+      menuButton.querySelector('.nav_menu-text').textContent = 'CLOSE'
+    }
 
     // Check screen width and play hamburger animation if below 991px
     if (window.innerWidth <= 991) {
