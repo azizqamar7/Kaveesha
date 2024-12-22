@@ -11,6 +11,7 @@ import { sectionDiscover } from './section-discover'
 import { sectionPhilosophy } from './section-philosophy'
 import { sectionWork } from './section-work'
 import { sectionFooter } from './section-footer'
+import { navbarAnimation, navbarToggle } from './navbar'
 
 if (window.innerWidth > 991) {
   window.onbeforeunload = () => {
@@ -51,6 +52,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
   gsap.registerPlugin(ScrollTrigger, Draggable)
 
   /** Run all the functions below for each sections */
+  // navbarToggle()
+
+  navbarAnimation()
+
   sectionGallery()
 
   sectionBio()

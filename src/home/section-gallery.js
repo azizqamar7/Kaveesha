@@ -70,6 +70,25 @@ export const sectionGallery = () => {
           gsap.to('[door-mid-text]', { x: '0%', opacity: 1, stagger: 0.1 })
         }
       },
+      onToggle: (self) => {
+        // Hide Navbar in this section
+        if (self.isActive) {
+          gsap.to('.navbar', {
+            y: '-110%',
+            duration: 1,
+            ease: 'power3.out',
+            overwrite: true,
+          })
+        } else {
+          gsap.to('.navbar', {
+            y: '0%',
+            duration: 0.5,
+            ease: 'power3.out',
+            clearProps: 'transform',
+            overwrite: true,
+          })
+        }
+      },
     },
   })
 
