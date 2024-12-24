@@ -137,12 +137,15 @@ export const sectionDraggable = () => {
       })
       // }
 
-      // if(window.innerWidth < 991) {
-      //   panItem.addEventListener('click', ()=>{
-      //     panItem[index].classList.add('is-active')
+      if (window.innerWidth < 991) {
+        panItem.addEventListener('click', () => {
+          hoverIntl.restart()
+        })
 
-      //   })
-      // }
+        panItem.addEventListener('blur', () => {
+          hoverIntl.reverse()
+        })
+      }
     })
   }
 
