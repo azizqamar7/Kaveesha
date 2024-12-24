@@ -102,6 +102,52 @@ export const sectionDraggable = () => {
     })
   }
 
+  const journalCardIx = () => {
+    const dragPanItems = document.querySelectorAll('[pan-drag-item]')
+
+    dragPanItems.forEach((panItem, index) => {
+      const panItemImage = panItem.querySelector('[pan-drag-image]')
+      const hoverIntl = gsap.timeline({ paused: true })
+
+      if (panItemImage) {
+        hoverIntl.fromTo(
+          panItemImage,
+          {
+            clipPath:
+              'polygon(0 0, 100% 0, 100% 20%, 100% 100%, 70% 100%, 0 100%)',
+          },
+          {
+            clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0% 0%, 0% 100%, 0 100%)',
+            duration: 1,
+            ease: 'power2.out',
+          }
+        )
+      }
+
+      // Hover on Desktop
+      // if (window.innerWidth > 991) {
+      panItem.addEventListener('mouseenter', () => {
+        dragPanInstance.disable()
+        hoverIntl.restart()
+      })
+
+      panItem.addEventListener('mouseleave', () => {
+        dragPanInstance.enable()
+        hoverIntl.reverse()
+      })
+      // }
+
+      // if(window.innerWidth < 991) {
+      //   panItem.addEventListener('click', ()=>{
+      //     panItem[index].classList.add('is-active')
+
+      //   })
+      // }
+    })
+  }
+
+  journalCardIx()
+
   // Responsive handling
   window.addEventListener('resize', () => {
     const draggables = Draggable.get(document.querySelector('.drag-pan'))
