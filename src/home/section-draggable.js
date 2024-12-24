@@ -139,10 +139,12 @@ export const sectionDraggable = () => {
 
       if (window.innerWidth < 991) {
         panItem.addEventListener('click', () => {
+          dragPanInstance.disable()
           hoverIntl.restart()
         })
 
         panItem.addEventListener('blur', () => {
+          dragPanInstance.enable()
           hoverIntl.reverse()
         })
       }
