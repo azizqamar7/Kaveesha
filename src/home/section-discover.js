@@ -8,8 +8,8 @@ export const sectionDiscover = () => {
     if (items.length > 0) {
       items.forEach((item) => {
         const isSmaller = item.hasAttribute('smaller')
-        const initialY = isSmaller ? 200 : 100
-        const finalY = isSmaller ? -240 : -120
+        const initialY = isSmaller ? 200 : 20
+        const finalY = isSmaller ? -240 : -20
 
         gsap.fromTo(
           item,
@@ -54,7 +54,7 @@ export const sectionDiscover = () => {
 
     discoverTimeline.fromTo(
       items,
-      { opacity: 0, y: '2rem' },
+      { opacity: 0, y: '0.5rem' },
       {
         opacity: 1,
         y: '0rem',

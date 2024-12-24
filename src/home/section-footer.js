@@ -26,7 +26,7 @@ export const sectionFooter = () => {
       onComplete: () => {
         gsap.set(thankYouBlock, { display: 'flex' })
         gsap.to(thankYouBlock, {
-          y: '0%',
+          y: '-26%',
           opacity: 1,
           duration: 0.6,
           ease: 'power2.out',
@@ -35,7 +35,7 @@ export const sectionFooter = () => {
     })
 
     timeline.to(form, {
-      y: '-100%',
+      y: '100%',
       duration: 0.8,
       ease: 'power3.in',
       onComplete: () => gsap.set(form, { display: 'none' }),
@@ -43,22 +43,26 @@ export const sectionFooter = () => {
   })
 
   submitButton.addEventListener('mouseenter', () => {
-    gsap.to(form, {
-      rotation: -3,
+    gsap.to(submitButton, {
+      rotation: -9,
       duration: 0.2,
       ease: 'power1.inOut',
       onComplete: () =>
-        gsap.to(form, {
-          rotation: 3,
+        gsap.to(submitButton, {
+          rotation: 9,
           duration: 0.2,
           ease: 'power1.inOut',
           onComplete: () =>
-            gsap.to(form, { rotation: 0, duration: 0.2, ease: 'power1.inOut' }),
+            gsap.to(submitButton, {
+              rotation: 0,
+              duration: 0.2,
+              ease: 'power1.inOut',
+            }),
         }),
     })
   })
 
   submitButton.addEventListener('mouseleave', () => {
-    gsap.to(form, { rotation: 0, duration: 0.2, ease: 'power1.out' })
+    gsap.to(submitButton, { rotation: 0, duration: 0.2, ease: 'power1.out' })
   })
 }
