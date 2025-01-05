@@ -16,7 +16,15 @@ export const sectionGallery = () => {
   }
 
   const heroTiles = document.querySelectorAll('[hero-loader-image]')
-  const heroTilesTl = gsap.timeline({ onComplete: enableScroll })
+  const heroTilesTl = gsap.timeline({
+    onComplete: () => {
+      enableScroll()
+
+      if (window.innerWidth > 767) {
+        gsap.to(window, { duration: 1.5, scrollTo: 1000 })
+      }
+    },
+  })
 
   if (window.innerWidth > 767) {
     heroTilesTl

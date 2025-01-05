@@ -11,30 +11,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     opacity: 1,
   })
 
-  /** Split Type */
-  //   let typeSplit
-
-  //   function runSplitType() {
-  //     typeSplit = new SplitType('[text-split]', {
-  //       types: 'lines, words, chars',
-  //       tagName: 'span',
-  //     })
-  //   }
-
-  //   runSplitType()
-
-  //   //Run the code when window width changes
-  //   let windowWidth = window.innerWidth
-  //   window.addEventListener('resize', function () {
-  //     if (windowWidth !== window.innerWidth) {
-  //       windowWidth = window.innerWidth
-  //       typeSplit.revert()
-  //       runSplitType()
-  //     }
-  //   })
-
-  /** Split Type */
-
   const horizontalScroll = () => {
     const sectionHorizontal = document.querySelector(
       '.project_horizontal_wrapper'
@@ -100,6 +76,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
         { scale: 1.2, duration: 5, ease: 'power3.out' },
         '<'
       )
+    })
+
+    const moveCloseButtonTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '[next-project-wrapper]',
+        containerAnimation: mainTl,
+        // markers: true,
+        start: 'left 100%',
+        onToggle: (self) => {
+          if (self.isActive) {
+            gsap.to('[close-button-wrapper]', { x: '-10%' })
+          } else {
+            gsap.to('[close-button-wrapper]', { x: '0%' })
+          }
+        },
+      },
     })
   }
 

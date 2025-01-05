@@ -31,6 +31,14 @@ export const sectionJournelScroll = () => {
           gsap.to(dragPan, { x: '-25%', y: '-25%' })
         }
       },
+      onToggle: (self) => {
+        if (self.isActive) {
+          gsap.to('[nav-link]', { color: '#2b4425' })
+          console.log('Color change')
+        } else {
+          gsap.to('[nav-link]', { clearProps: 'all' })
+        }
+      },
     },
   })
 
