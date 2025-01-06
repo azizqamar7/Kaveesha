@@ -45,9 +45,9 @@ export const navbarAnimation = () => {
 
     isOpen = !isOpen
     if (isOpen) {
-      menuButton.querySelector('.nav_menu-text').textContent = 'CLOSE'
+      menuButton.querySelector('.nav_menu-text').textContent = 'close'
     } else {
-      menuButton.querySelector('.nav_menu-text').textContent = 'MENU'
+      menuButton.querySelector('.nav_menu-text').textContent = 'menu'
     }
 
     // Check screen width and play hamburger animation if below 991px
