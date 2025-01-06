@@ -21,7 +21,7 @@ export const sectionGallery = () => {
       enableScroll()
 
       if (window.innerWidth > 767) {
-        gsap.to(window, { duration: 1.5, scrollTo: 1000 })
+        gsap.to(window, { duration: 5, scrollTo: 1200, ease: 'power2.out' })
       }
     },
   })
@@ -73,21 +73,7 @@ export const sectionGallery = () => {
             gsap.to('[door-top-text]', { y: '200%' })
             gsap.to('[door-mid-text]', { x: '15%', opacity: 0, stagger: 0.1 })
           }
-        } else {
-          gsap.to('[door-top-text]', { y: '0%' })
-          gsap.to('[door-mid-text]', { x: '0%', opacity: 1, stagger: 0.1 })
-        }
-      },
-      onToggle: (self) => {
-        // Hide Navbar in this section
-        if (self.isActive) {
-          gsap.to('.navbar', {
-            y: '-110%',
-            duration: 1,
-            ease: 'power3.out',
-            overwrite: true,
-          })
-        } else {
+
           gsap.to('.navbar', {
             y: '0%',
             duration: 0.5,
@@ -95,7 +81,36 @@ export const sectionGallery = () => {
             clearProps: 'transform',
             overwrite: true,
           })
+        } else {
+          gsap.to('[door-top-text]', { y: '0%' })
+          gsap.to('[door-mid-text]', { x: '0%', opacity: 1, stagger: 0.1 })
+
+          gsap.to('.navbar', {
+            y: '-110%',
+            duration: 1,
+            ease: 'power3.out',
+            overwrite: true,
+          })
         }
+      },
+      onToggle: (self) => {
+        // Hide Navbar in this section
+        // if (self.isActive) {
+        //   gsap.to('.navbar', {
+        //     y: '-110%',
+        //     duration: 1,
+        //     ease: 'power3.out',
+        //     overwrite: true,
+        //   })
+        // } else {
+        //   gsap.to('.navbar', {
+        //     y: '0%',
+        //     duration: 0.5,
+        //     ease: 'power3.out',
+        //     clearProps: 'transform',
+        //     overwrite: true,
+        //   })
+        // }
       },
     },
   })
