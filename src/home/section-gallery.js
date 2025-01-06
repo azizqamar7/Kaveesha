@@ -95,22 +95,23 @@ export const sectionGallery = () => {
       },
       onToggle: (self) => {
         // Hide Navbar in this section
-        // if (self.isActive) {
-        //   gsap.to('.navbar', {
-        //     y: '-110%',
-        //     duration: 1,
-        //     ease: 'power3.out',
-        //     overwrite: true,
-        //   })
-        // } else {
-        //   gsap.to('.navbar', {
-        //     y: '0%',
-        //     duration: 0.5,
-        //     ease: 'power3.out',
-        //     clearProps: 'transform',
-        //     overwrite: true,
-        //   })
-        // }
+        if (self.isActive) {
+          gsap.to('[nav-text]', {
+            // y: '-110%',
+            color: '#ffffff',
+            duration: 1,
+            ease: 'power3.out',
+            overwrite: true,
+          })
+        } else {
+          gsap.to('[nav-text]', {
+            // y: '0%',
+            duration: 0.5,
+            ease: 'power3.out',
+            clearProps: 'color',
+            overwrite: true,
+          })
+        }
       },
     },
   })
