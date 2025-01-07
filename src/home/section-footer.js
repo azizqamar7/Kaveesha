@@ -65,4 +65,19 @@ export const sectionFooter = () => {
   submitButton.addEventListener('mouseleave', () => {
     gsap.to(submitButton, { rotation: 0, duration: 0.2, ease: 'power1.out' })
   })
+
+  const changeNavTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.footer_component',
+      start: 'top 50%',
+      onToggle: (self) => {
+        if (self.isActive) {
+          gsap.to('[nav-link]', { color: '#2b4425' })
+          console.log('Color change')
+        } else {
+          gsap.to('[nav-link]', { clearProps: 'all' })
+        }
+      },
+    },
+  })
 }
