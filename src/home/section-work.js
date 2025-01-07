@@ -59,5 +59,7 @@ export const sectionWork = () => {
     })
   }
 
-  // workImagesParallax()
+  if (window.innerWidth < 991) {
+    workImagesParallax()
+  }
 }
