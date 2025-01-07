@@ -73,6 +73,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   sectionFooter()
 
+  navbarToggle()
+
   // Add the resize event listener to clear and re-run the ScrollTrigger
   if (window.innerWidth > 767) {
     window.addEventListener('resize', () => {
@@ -95,6 +97,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
       sectionDraggable()
 
       sectionFooter()
+
+      navbarToggle()
     })
   }
 })

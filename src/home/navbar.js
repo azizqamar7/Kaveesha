@@ -76,25 +76,33 @@ export const navbarToggle = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: trigger,
-        markers: true,
+        // markers: true,
         start: 'top 5%',
+        end: 'bottom 80%',
         onToggle: (self) => {
           // Hide Navbar in this section
+          // if (self.isActive) {
+          //   gsap.to('.navbar', {
+          //     y: '-110%',
+          //     duration: 1,
+          //     ease: 'power3.out',
+          //     overwrite: true,
+          //   })
+          // } else {
+          //   gsap.to('.navbar', {
+          //     y: '0%',
+          //     duration: 0.5,
+          //     ease: 'power3.out',
+          //     clearProps: 'transform',
+          //     overwrite: true,
+          //   })
+          // }
+
           if (self.isActive) {
-            gsap.to('.navbar', {
-              y: '-110%',
-              duration: 1,
-              ease: 'power3.out',
-              overwrite: true,
-            })
+            gsap.to('[nav-link]', { color: '#2b4425' })
+            console.log('Color change')
           } else {
-            gsap.to('.navbar', {
-              y: '0%',
-              duration: 0.5,
-              ease: 'power3.out',
-              clearProps: 'transform',
-              overwrite: true,
-            })
+            gsap.to('[nav-link]', { clearProps: 'all' })
           }
         },
       },
