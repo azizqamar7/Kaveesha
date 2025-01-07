@@ -3,6 +3,7 @@ import gsap from 'gsap'
 export const navbarAnimation = () => {
   const menuTimeline = gsap.timeline({ paused: true, reversed: true })
   const menuButton = document.querySelector('.nav_menu-button')
+  const navlinks = document.querySelectorAll('[nav-link]')
   const line1 = document.querySelector('.nav_button-line-1')
   const line2 = document.querySelector('.nav_button-line-2')
   const line3 = document.querySelector('.nav_button-line-3')
@@ -56,6 +57,26 @@ export const navbarAnimation = () => {
         ? hamburgerTimeline.play()
         : hamburgerTimeline.reverse()
     }
+  })
+
+  navlinks.forEach((navlink) => {
+    navlink.addEventListener('click', () => {
+      menuTimeline.reversed() ? menuTimeline.play() : menuTimeline.reverse()
+
+      isOpen = !isOpen
+      if (isOpen) {
+        menuButton.querySelector('.nav_menu-text').textContent = 'close'
+      } else {
+        menuButton.querySelector('.nav_menu-text').textContent = 'menu'
+      }
+
+      // Check screen width and play hamburger animation if below 991px
+      if (window.innerWidth <= 991) {
+        hamburgerTimeline.reversed()
+          ? hamburgerTimeline.play()
+          : hamburgerTimeline.reverse()
+      }
+    })
   })
 
   // Reset hamburger animation on window resize above 991px
