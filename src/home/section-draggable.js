@@ -27,7 +27,7 @@ export const sectionDraggable = () => {
       minY: -window.innerHeight,
       maxY: 0,
     },
-    // inertia: true,
+    inertia: true,
     throwProps: true,
     cursor: 'grab',
     disabled: false, // Initially enabled

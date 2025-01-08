@@ -3,6 +3,7 @@ console.log('Hello from Home folder')
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+import { InertiaPlugin } from 'gsap/InertiaPlugin'
 import { sectionBio } from './section-bio'
 import { sectionGallery } from './section-gallery'
 import { sectionJournelScroll } from './section-journal'
@@ -50,7 +51,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   /** Split Type */
 
-  gsap.registerPlugin(ScrollTrigger, Draggable, ScrollToPlugin)
+  gsap.registerPlugin(ScrollTrigger, Draggable, ScrollToPlugin, InertiaPlugin)
 
   /** Run all the functions below for each sections */
   // navbarToggle()
