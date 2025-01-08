@@ -125,28 +125,31 @@ export const sectionDraggable = () => {
       }
 
       // Hover on Desktop
-      // if (window.innerWidth > 991) {
-      panItem.addEventListener('mouseenter', () => {
-        dragPanInstance.disable()
-        hoverIntl.restart()
-      })
-
-      panItem.addEventListener('mouseleave', () => {
-        dragPanInstance.enable()
-        hoverIntl.reverse()
-      })
-      // }
-
-      if (window.innerWidth < 991) {
-        panItem.addEventListener('click', () => {
+      if (window.innerWidth > 991) {
+        panItem.addEventListener('mouseenter', () => {
           dragPanInstance.disable()
           hoverIntl.restart()
         })
 
-        panItem.addEventListener('blur', () => {
+        panItem.addEventListener('mouseleave', () => {
           dragPanInstance.enable()
           hoverIntl.reverse()
         })
+      }
+
+      let isPanClicked = false
+
+      if (window.innerWidth < 991) {
+        panItem.addEventListener('click', () => {
+          // dragPanInstance.disable()
+          isPanClicked = !isPanClicked
+          isPanClicked ? hoverIntl.restart() : hoverIntl.reverse()
+        })
+
+        // panItem.addEventListener('blur', () => {
+        //   dragPanInstance.enable()
+        //   hoverIntl.reverse()
+        // })
       }
     })
   }
