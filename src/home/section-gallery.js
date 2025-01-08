@@ -123,17 +123,17 @@ export const sectionGallery = () => {
       { scale: 0, x: 0, y: 0, stagger: { each: 0.2 } },
       '<25%'
     )
-  if (window.innerWidth > 767) {
-    tl.to('[gallery-image]', { opacity: 0, stagger: { each: 0.2 } }, '<25%').to(
-      '[gallery-door-close="left"], [gallery-door-close="right"]',
-      { x: '0%', ease: 'power3.out' },
-      '<75%'
-    )
-  }
+  // if (window.innerWidth > 767) {
+  tl.to('[gallery-image]', { opacity: 0, stagger: { each: 0.2 } }, '<25%').to(
+    '[gallery-door-close="left"], [gallery-door-close="right"]',
+    { x: '0%', ease: 'power3.out' },
+    '<75%'
+  )
+  // }
   if (window.innerWidth < 767) {
-    tl.to('[gallery-door-close="left"], [gallery-door-close="right"]', {
-      x: '0%',
-      ease: 'power3.out',
-    })
+    // tl.to('[gallery-door-close="left"], [gallery-door-close="right"]', {
+    //   x: '0%',
+    //   ease: 'power3.out',
+    // })
   }
 }
