@@ -11,6 +11,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     opacity: 1,
   })
 
+  const closeButton = document.querySelector('[data-action="close"]')
+  closeButton.addEventListener('click', () => {
+    window.close()
+  })
+
   const horizontalScroll = () => {
     const sectionHorizontal = document.querySelector(
       '.project_horizontal_wrapper'
