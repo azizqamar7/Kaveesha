@@ -63,7 +63,7 @@ export const sectionJournelScroll = () => {
   if (window.innerWidth < 991) {
     tl.fromTo(
       '[large-text] .char',
-      { color: '#989898' },
+      { color: '#4D6A39' },
       { color: '#000000', stagger: 0.2 },
       0
     )
