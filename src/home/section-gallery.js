@@ -21,7 +21,7 @@ export const sectionGallery = () => {
       enableScroll()
 
       if (window.innerWidth > 767) {
-        gsap.to(window, { duration: 5, scrollTo: 1200, ease: 'power2.out' })
+        gsap.to(window, { duration: 2.5, scrollTo: 1200, ease: 'power2.out' })
       }
     },
   })
