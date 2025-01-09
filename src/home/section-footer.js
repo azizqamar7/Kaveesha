@@ -25,20 +25,30 @@ export const sectionFooter = () => {
     const timeline = gsap.timeline({
       onComplete: () => {
         gsap.set(thankYouBlock, { display: 'flex' })
-        gsap.to(thankYouBlock, {
-          y: '-26%',
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power2.out',
-        })
+        if (window.innerWidth > 480) {
+          gsap.to(thankYouBlock, {
+            y: '-26%',
+            opacity: 1,
+            duration: 0.6,
+            ease: 'power2.out',
+          })
+        }
+        if (window.innerWidth < 480) {
+          gsap.to(thankYouBlock, {
+            y: '-8%',
+            opacity: 1,
+            duration: 0.6,
+            ease: 'power2.out',
+          })
+        }
       },
     })
 
     timeline.to(form, {
-      y: '100%',
+      y: '200%',
       duration: 0.8,
       ease: 'power3.in',
-      onComplete: () => gsap.set(form, { display: 'none' }),
+      // onComplete: () => gsap.set(form, { display: 'none' }),
     })
   })
 
