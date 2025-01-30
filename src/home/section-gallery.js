@@ -11,49 +11,49 @@ export const sectionGallery = () => {
   }
 
   // Disable scroll immediately
-  if (window.innerWidth > 767) {
-    disableScroll()
-  }
+  // if (window.innerWidth > 767) {
+  disableScroll()
+  // }
 
   const heroTiles = document.querySelectorAll('[hero-loader-image]')
   const heroTilesTl = gsap.timeline({
     onComplete: () => {
       enableScroll()
 
-      if (window.innerWidth > 767) {
-        gsap.to(window, { duration: 2.5, scrollTo: 1200, ease: 'power2.out' })
-      }
+      // if (window.innerWidth > 767) {
+      gsap.to(window, { duration: 2.5, scrollTo: 1200, ease: 'power2.out' })
+      // }
     },
   })
 
-  if (window.innerWidth > 767) {
-    heroTilesTl
-      .from('[hero-top-text]', { y: '125%', duration: 1 })
-      .from(
-        '[hero-mid-text]',
-        { x: '20%', opacity: 0, stagger: 0.1, duration: 1 },
-        0
-      )
+  // if (window.innerWidth > 767) {
+  heroTilesTl
+    .from('[hero-top-text]', { y: '125%', duration: 1 })
+    .from(
+      '[hero-mid-text]',
+      { x: '20%', opacity: 0, stagger: 0.1, duration: 1 },
+      0
+    )
 
-    heroTiles.forEach((tile) => {
-      heroTilesTl.to(tile, {
-        opacity: 1,
-        delay: 0.3,
-        duration: 0.4,
-      })
+  heroTiles.forEach((tile) => {
+    heroTilesTl.to(tile, {
+      opacity: 1,
+      delay: 0.3,
+      duration: 0.4,
     })
-    heroTilesTl.to('.home_hero_content', { opacity: 0 })
-  }
+  })
+  heroTilesTl.to('.home_hero_content', { opacity: 0 })
+  // }
 
-  if (window.innerWidth < 767) {
-    heroTilesTl
-      .from('[door-top-text]', { y: '200%', duration: 1 })
-      .from(
-        '[door-mid-text]',
-        { x: '20%', opacity: 0, stagger: 0.1, duration: 1 },
-        0
-      )
-  }
+  // if (window.innerWidth < 767) {
+  // heroTilesTl
+  //   .from('[door-top-text]', { y: '200%', duration: 1 })
+  //   .from(
+  //     '[door-mid-text]',
+  //     { x: '20%', opacity: 0, stagger: 0.1, duration: 1 },
+  //     0
+  //   )
+  // }
 
   const tl = gsap.timeline({
     scrollTrigger: {
