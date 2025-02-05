@@ -2,6 +2,7 @@ console.log('Project page')
 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { cmsNextJs } from './cms-next'
 
 window.addEventListener('DOMContentLoaded', (event) => {
   gsap.registerPlugin(ScrollTrigger)
@@ -10,6 +11,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
   gsap.set('.page-wrapper', {
     opacity: 1,
   })
+
+  cmsNextJs()
 
   const closeButton = document.querySelector('[data-action="close"]')
   closeButton.addEventListener('click', () => {
