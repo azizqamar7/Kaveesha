@@ -17,14 +17,23 @@ export const sectionDraggable = () => {
     togglePan.textContent = 'Enter'
   }
 
+  let windowWidth = window.innerWidth
+  let windowHeight = window.innerHeight
+  let minYBound = windowHeight
+  let minXBound = windowWidth
+  if (window.innerWidth < 479) {
+    minYBound = windowHeight * 0.6 + windowHeight
+    minXBound = windowWidth * 0.8 + windowWidth
+  }
+
   // Main drag pan draggability
   dragPanInstance = Draggable.create(dragPan, {
     type: 'x,y',
     edgeResistance: 1,
     bounds: {
-      minX: -window.innerWidth,
+      minX: -minXBound,
       maxX: 0,
-      minY: -window.innerHeight,
+      minY: -minYBound,
       maxY: 0,
     },
     inertia: true,
