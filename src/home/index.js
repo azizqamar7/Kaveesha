@@ -1,6 +1,7 @@
 console.log('Hello from Home folder')
 
 import gsap from 'gsap'
+import SplitType from 'split-type'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { InertiaPlugin } from 'gsap/InertiaPlugin'

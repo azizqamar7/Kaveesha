@@ -15,6 +15,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "gsap": "npm:@gsap/business@^3.12.5"
+    "gsap": "npm:@gsap/business@^3.12.5",
+    "split-type": "^0.3.4"
   }
 }
